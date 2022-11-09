@@ -32,16 +32,7 @@ class PaginaController extends Controller
     }
 
     public function recibirFormContacto(Request $request)
-    {
-        //Recibir información
-        // dd(
-        //     $request->all(),
-        //     $request->only('nombre', 'correo'),
-        //     $request->except('_token'),
-        //     $request->nombre,
-        //     $request->input('nombre')
-        // );
-        
+    {        
         //Validar
         $request->validate([
             'nombre' => 'required|max:255|min:3',
@@ -49,33 +40,8 @@ class PaginaController extends Controller
             'comentario' => 'required',
         ]);
 
-        
         //Insertar a DB
-
-        // DB::table('contactos')->insert([
-        //     'nombre' => $request->nombre,
-        //     'correo' => $request->correo,
-        //     'comentario' => $request->comentario,
-        //     'created_at' => now(),
-        //     'updated_at' => now(),
-        // ]);
-
-        //DB::table('contactos')->insert($request->except('_token'));
-
-        // $contacto = new Contacto();
-        // $contacto->nombre = $request->nombre;
-        // $contacto->correo = $request->correo;
-        // $contacto->comentario = $request->comentario;
-        // $contacto->save();
-        
-        // Contacto::create([
-        //     'nombre' => $request->nombre,
-        //     'correo' => $request->correo,
-        //     'comentario' => $request->comentario,
-        // ]);
-
-        //Insertar a DB
-        Contacto::create([$request->all()]);
+        Contacto::create($request->all());
 
         //Redirigir
         return redirect('/contacto');
