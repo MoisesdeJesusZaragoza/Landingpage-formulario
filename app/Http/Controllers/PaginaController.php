@@ -19,8 +19,8 @@ class PaginaController extends Controller
 
         if (!empty($codigo) && $codigo == '1234')
         {
-            $nombre_default = 'Invitado';
-            $correo_default = 'info@example.com';
+            $nombre_default = 'Moises';
+            $correo_default = 'Moises@example.com';
         }
         else
         {

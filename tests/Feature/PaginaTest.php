@@ -43,7 +43,7 @@ class PaginaTest extends TestCase
     {
         $response = $this->get('/contacto/1234');
         $response->assertStatus(200);
-        $this->assertEquals('Invitado', $response['nombre_default']);
-        $this->assertEquals('info@example.com', $response['correo_default']);
+        $this->assertEquals('Moises', $response['nombre_default']);
+        $this->assertEquals('Moises@example.com', $response['correo_default']);
     }
 }
